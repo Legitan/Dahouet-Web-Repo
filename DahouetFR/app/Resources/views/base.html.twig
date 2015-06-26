@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}YCVA{% endblock %}</title>
+        {% block stylesheets %}
+        	 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    	<div class="container">
+	    	<header>
+	    		<img alt="" src="../images/ImageTitre.png">
+	    	
+		    	<nav id="navbar">
+				  <ul id="menu">
+				    <li><a id= "accueil" href="#"><span class="chevron bottom"></span><strong>Accueil</strong></a>
+				    	<ul class="sous-menu">
+				    		<li class= "sous-menu-item-box"><a class= "sous-menu-item-link" href="#">Présentation des régates</a></li>
+				    	</ul>
+				    </li>
+				    <li><a href="#"><span class="chevron bottom"></span><strong>Challenges et régates</strong></a>
+				    	<ul class="sous-menu">
+						    <li><a class= "sous-menu-item-link" href="#">Inscription</a></li>
+						    <li><a class= "sous-menu-item-link" href="#">Résultats</a></li>
+						    <li><a class= "sous-menu-item-link" href="#">Archives</a></li>
+				    	</ul>
+				    </li>
+				    <li><a href="#"><strong>Partenaires</strong></a></li>
+				    <li><a href="#"><strong>Télécharger notre plaquette</strong></a></li>
+				  </ul>
+				</nav>
+			</header>
+			<div class="content">
+	                {% block content %}
+	                    {% block section %}<section>
+	                        <div class="article">
+	                            <h1>80 miles de Dahouët</h1>
+	                            <h3>Date : 10 août 2014</h3>
+	                            <p><b>Description :</b> "La" régate de l'été du club depuis plus de 40 ans se déroule en baie de St Brieuc et parfois juste devant la plage du Val-André par plusieurs parcours banane, pour le plus grand bonheur des estivants. Tout dépend de la direction et de la force du vent. Ce rassemblement compte pour le Trophé Habitable CCI22.</p>
+	                            <p>Départ et arrivée à Dahouët avec la veille, samedi soir, un dîner/BBQ. Remise des prix le dimanche soir autour d'un verre.</p>
+	                        </div>
+	                    </section>{% endblock %}
+	                    {% block aside %}<aside>
+	                            
+	                        <div id="reseau">
+	                            <p class="reseau">Suivez nous sur les réseaux sociaux</p>
+	                            <p id="icone">
+	                            	<a href="https://www.facebook.com/ycvalandre">
+	                                	<img class="icoreseau" src="{{ asset('images/facebook.png') }}" />
+	                                </a>
+	                                <a href="https://twitter.com/ycvalandre">
+	                                	<img class="icoreseau" src="{{ asset('images/twitter.png') }}" />
+	                                </a>
+	                            </p>
+	                        </div>
+	                        <!-- MODULE DE CONNEXION -->
+	                            <div class="module">
+	                                {% include "DahouetMainBundle:Main:connecte.html.twig" %}
+	                                
+	                            </div>
+	                        <div class="module">
+	                            <h3>Inscription aux régates 2014</h3>
+	                            <div class="modmenu">
+	                                <ul>
+	                                    <li><a href="Selectboat/reg1" name="reg1" class="navig">Duo d'Armor</a></li>
+	                                    <li><a href="Selectboat/reg2" name="reg2" class="navig">40 miles de Dahouët</a></li>
+	                                    <li><a href="Selectboat/reg3" name="reg3" class="navig">Les 3 jours d'Armor</a></li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                        <div class="module">
+	                            <h3>Recherche</h3>
+	                            <form class="cherch" action="accueil.php" method="get">
+	                                <p>
+	                                    <input type="text" value="Rechercher" onfocus="if (this.value == 'Rechercher') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Rechercher';}" name="s"/>
+	                                    <button type="submit"><span>Rechercher</span></button>
+	                                </p>
+	                            </form>
+	                        </div>
+	                    </aside>{% endblock %}
+	                {% endblock %}
+	            </div>
+			<section>
+		        {% block body %}{% endblock %}
+		        {% block javascripts %}{% endblock %}
+		    </section>
+	        <footer id= "foot">
+	        	{% block footer %}
+	        		<div id= "bandeau"></div>
+	                <div id="copyright">
+	                	<a id= "retour" href="base.html.twig">Retour en Haut</a>
+	                    <p>Copyright © 2015 DL</p>
+	                    <ul id= "mention">
+	                    	<li><p>-</p></li>
+	                    	<li><a href= "#">Mentions legales</a></li>
+	                    	<li><p>-</p></li>
+	                    	<li><a href= "#">Contact</a></li>
+	                    	<li><p>-</p></li>
+	                    	<li><a href= "#">Accessibilité</a></li>
+	                    	<li><p>-</p></li>
+	                    </ul>
+	                </div>
+	            {% endblock %}
+	         </footer>
+		</div>
+    </body>
+</html>

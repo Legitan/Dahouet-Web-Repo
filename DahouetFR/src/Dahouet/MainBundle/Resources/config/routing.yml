@@ -1,0 +1,9 @@
+
+dahouet_Accueil:
+    path:     /Accueil
+    defaults: { _controller: "DahouetMainBundle:Main:index" }
+    
+Connexion:
+    path:       /Connexion
+    defaults:   { _controller: "DahouetMainBundle:Connexion:index" }
+    
