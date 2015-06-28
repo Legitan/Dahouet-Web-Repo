@@ -119,7 +119,7 @@ body{
 /***************************/
 .content {
     background-color: #E3E3E3;
-    min-height: 500px;
+    min-height: 510px;
     height: 100%;
 }
 section {
@@ -235,6 +235,7 @@ a.navig {
 /* LE FOOTER */
 /***************************/
 footer {
+	
 	position: relative;
     border-top: 1px solid #d5d5d5;
     color: #999;
@@ -243,6 +244,7 @@ footer {
     font: 16px arial;
     background-color: #163e69;
     color: #999999;
+    clear:both;
     height: 132px;
 }
 

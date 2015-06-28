@@ -7,3 +7,7 @@ Connexion:
     path:       /Connexion
     defaults:   { _controller: "DahouetMainBundle:Connexion:index" }
     
+Deconnexion:
+    path:       /Deconnexion
+    defaults:   { _controller: "DahouetMainBundle:Deconnexion:index" }
+    

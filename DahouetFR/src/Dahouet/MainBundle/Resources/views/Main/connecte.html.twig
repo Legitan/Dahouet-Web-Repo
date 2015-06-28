@@ -3,7 +3,7 @@
     {% if connexion == 1 %}
         {# Si le propriétaire est connecté, on lui dit bonjour #}
         <h3>Vous êtes connecté</h3>
-        <form action='Clear' method='post' name='deconnect'>
+        <form action='Deconnexion' method='post' name='deconnect'>
             <p>Bonjour {{ nommbr }}</p>
             <input type='submit' value='Déconnexion'/>
         </form>
@@ -11,8 +11,8 @@
         {# Sinon on lui propose de se connecter via le formulaire #}
         <h3>Connexion</h3>
         <form method="post" action="Connexion" name='connect'>
-        <input type="text" name="idmbr" value="500" />
-        <input type="password" name="pwmbr" />
-        <input type="submit" value="Valider" />
-    </form>
+	        <input type="text" name="idmbr" value="500" />
+	        <input type="password" name="pwmbr" />
+	        <input type="submit" value="Valider" />
+   		 </form>
     {% endif %}
