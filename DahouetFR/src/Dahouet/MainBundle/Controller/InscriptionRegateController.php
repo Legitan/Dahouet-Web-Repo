@@ -4,7 +4,7 @@
 namespace Dahouet\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Dahouet\MainBundle\Modele\DAO\VoilierDAO;
 
 class InscriptionRegateController extends Controller {
 	
@@ -19,6 +19,13 @@ class InscriptionRegateController extends Controller {
             return $this->render('DahouetMainBundle:Main:loginObligatoire.html.twig', array('connexion'=> $session->get('connexion')));
         }
         else{
+        // Récupération de l'identifiant du propriétaire
+        $idmbr = $session->get('idmbr');
+        
+        // Récupération des bateaux du propriétaire
+        $voilier = VoilierDAO::selectVoilier($idmbr);
+        return $this->render('DahouetMainBundle:Main:selectionVoilier.html.twig', array('connexion' => $connexion, 'nommbr' => $session->get('nommbr'), 'voilier' => $voilier));
         }
+        return $this->render('DahouetMainBundle:Main:index.html.twig', array('connexion' => $connexion, 'nommbr' => $session->get('nommbr')));
     }
 }
