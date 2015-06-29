@@ -1,4 +1,52 @@
 {% extends "::base.html.twig" %}
 
-{% block connexion %}
- {% endblock %}
+	{% block section %}
+		<section>
+		    <div class="article">
+		      <h1>80 miles de Dahouët</h1>
+		      <h3>Date : 10 août 2014</h3>
+		      <p><b>Description :</b> "La" régate de l'été du club depuis plus de 40 ans se déroule en baie de St Brieuc et parfois juste devant la plage du Val-André par plusieurs parcours banane, pour le plus grand bonheur des estivants. Tout dépend de la direction et de la force du vent. Ce rassemblement compte pour le Trophé Habitable CCI22.</p>
+		      <p>Départ et arrivée à Dahouët avec la veille, samedi soir, un dîner/BBQ. Remise des prix le dimanche soir autour d'un verre.</p>
+		    </div>
+		</section>
+	 {% endblock %}
+ 
+	{% block aside %}
+						<aside>
+	                        <div id="reseau">
+	                            <p class="reseau">Suivez nous sur les réseaux sociaux</p>
+	                            <p id="icone">
+	                            	<a href="https://www.facebook.com/ycvalandre">
+	                                	<img class="icoreseau" src="{{ asset('images/facebook.png') }}" />
+	                                </a>
+	                                <a href="https://twitter.com/ycvalandre">
+	                                	<img class="icoreseau" src="{{ asset('images/twitter.png') }}" />
+	                                </a>
+	                            </p>
+	                        </div>
+	                        <!-- MODULE DE CONNEXION -->
+	                            <div class="module">
+	                                {% include "DahouetMainBundle:Main:connecte.html.twig" %}
+	                                
+	                            </div>
+	                        <div class="module">
+	                            <h3>Inscription aux régates 2014</h3>
+	                            <div class="modmenu">
+	                                <ul>
+	                                    <li><a href="InscriptionRegate" name="reg1" class="navig">Duo d'Armor</a></li>
+	                                    <li><a href="#" name="reg2" class="navig">40 miles de Dahouët</a></li>
+	                                    <li><a href="#" name="reg3" class="navig">Les 3 jours d'Armor</a></li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                        <div class="module">
+	                            <h3>Recherche</h3>
+	                            <form class="cherch" action="accueil.php" method="get">
+	                                <p>
+	                                    <input type="text" value="Rechercher" onfocus="if (this.value == 'Rechercher') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Rechercher';}" name="s"/>
+	                                    <button type="submit"><span>Rechercher</span></button>
+	                                </p>
+	                            </form>
+	                        </div>
+	                    </aside>
+	{% endblock %}

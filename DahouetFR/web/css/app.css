@@ -7,6 +7,9 @@ body{
     box-shadow: 0px 0px 8px 1px black; 
     max-height: 2048px;
 }
+/* header{ */
+/* 	padding: 3px; */
+/* } */
 /***************************/
 /* LES MENUS */
 /***************************/
@@ -277,4 +280,7 @@ footer {
 	text-decoration: none;
 	color: white;
 	font: 14px arial;
+}
+#copyright a:hover{
+	text-decoration: underline;
 }

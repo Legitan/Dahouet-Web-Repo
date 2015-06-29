@@ -11,3 +11,7 @@ Deconnexion:
     path:       /Deconnexion
     defaults:   { _controller: "DahouetMainBundle:Deconnexion:index" }
     
+InscriptionRegate:
+    path:       /InscriptionRegate
+    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:index" }
+    

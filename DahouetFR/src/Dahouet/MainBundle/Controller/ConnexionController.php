@@ -4,11 +4,7 @@
 namespace Dahouet\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-// use Symfony\Component\HttpFoundation\Response;
 use Dahouet\MainBundle\Modele\DAO\ProprietaireDAO;
-//use Symfony\Component\HttpFoundation\Session\Session;
-//$idmbr = filter_input(INPUT_POST, 'idmbr');
-//$pwmbr = filter_input(INPUT_POST, 'pwmbr'); 
 
 
 class ConnexionController extends Controller {
