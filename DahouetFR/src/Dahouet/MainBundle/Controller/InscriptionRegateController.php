@@ -23,7 +23,7 @@ class InscriptionRegateController extends Controller {
         $idmbr = $session->get('idmbr');
         
         // Récupération des bateaux du propriétaire
-        $voilier = VoilierDAO::selectVoilier($idmbr);
+        $voilier = VoilierDAO::getListVoilier($idmbr);
         return $this->render('DahouetMainBundle:Main:selectionVoilier.html.twig', array('connexion' => $connexion, 'nommbr' => $session->get('nommbr'), 'voilier' => $voilier));
         }
         return $this->render('DahouetMainBundle:Main:index.html.twig', array('connexion' => $connexion, 'nommbr' => $session->get('nommbr')));

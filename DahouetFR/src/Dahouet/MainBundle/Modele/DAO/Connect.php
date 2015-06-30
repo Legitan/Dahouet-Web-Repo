@@ -12,12 +12,12 @@ class Connect {
         $user = 'root';
         $pass = '';
         try {
-            $bdd = new PDO($source, $user, $pass);
-            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo = new PDO($source, $user, $pass);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } 
         catch (Exception $e) {
             die('Erreur : '.$e->getMessage());
         }
-        return $bdd;
+        return $pdo;
     }
 }

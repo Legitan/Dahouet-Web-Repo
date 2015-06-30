@@ -15,12 +15,11 @@ class ConnexionController extends Controller {
         $idmbr = filter_input(INPUT_POST, 'idmbr');
         $pwmbr = filter_input(INPUT_POST, 'pwmbr');
         // Test de connexion sur la base de données
-        $proprietaire = ProprietaireDAO::ConnexionProprietaire($idmbr, $pwmbr);
-        
+        $proprietaire = ProprietaireDAO::getListProprietaire($idmbr, $pwmbr);
         if ($proprietaire) {
             $session = $this->get('session');
             $session->set('idmbr', $idmbr);
-            $session->set('nommbr', $proprietaire[0]['NOMMBR']);
+            $session->set('nommbr', $proprietaire->getNommbr());
             $session->set('connexion', 1);
         }
         else {

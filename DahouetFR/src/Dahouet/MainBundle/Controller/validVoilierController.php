@@ -1,5 +1,5 @@
 <?php
-// src/SYMFONYDahouet/RegatesBundle/Controller/ValidationVoilierController.php
+// src/SYMFONYDahouet/RegatesBundle/Controller/validVoilierController.php
 
 namespace Dahouet\MainBundle\Controller;
 
@@ -8,15 +8,14 @@ use Dahouet\MainBundle\Modele\DAO\VoilierDAO;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 
-class ValidationVoilierController extends Controller {
+class validVoilierController extends Controller {
 	
 	public function indexAction() {
 			$session = new session();
-			$session->start();
-			$session->set('numvoil', $_POST['validboat']);
+// 			$session->start();
+			$session->set('numvoil', $_POST['validVoilier']);
 			$numvoil = $session->get('numvoil');
-			$validation = VoilierDAO::ValidBateau($numvoil);
-			$particip = VoilierDAO::Participation($numvoil);
+			$validation = VoilierDAO::ValidationVoilier($numvoil);
 			$session->set('numclas', $validation[0]['NUMCLAS']);
 			$session->set('nomvoil', $validation[0]['NOMVOIL']);
 			$session->set('nbrpts', $validation[0]['NBRPTS']);

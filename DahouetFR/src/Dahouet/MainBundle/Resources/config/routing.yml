@@ -15,7 +15,7 @@ InscriptionRegate:
     path:       /InscriptionRegate
     defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:index" }
     
-ValidationVoilier:
-    path:       /ValidationVoilier
-    defaults:   { _controller: "DahouetMainBundle:ValidationVoilier:index" }
+validVoilier:
+    path:       /validVoilier
+    defaults:   { _controller: "DahouetMainBundle:validVoilier:index" }
     
