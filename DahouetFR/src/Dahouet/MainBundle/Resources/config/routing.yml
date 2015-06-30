@@ -19,3 +19,15 @@ validVoilier:
     path:       /validVoilier
     defaults:   { _controller: "DahouetMainBundle:validVoilier:index" }
     
+#InscriptionRegateReg1:
+#    path:       /InscriptionRegate/reg1
+#    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg1" }
+#    
+#InscriptionRegateReg2:
+#    path:       /InscriptionRegate/reg2
+#    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg2" }
+#    
+#InscriptionRegateReg1:
+#    path:       /InscriptionRegate/reg3
+#    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg3" }
+    

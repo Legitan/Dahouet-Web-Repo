@@ -28,4 +28,5 @@ class InscriptionRegateController extends Controller {
         }
         return $this->render('DahouetMainBundle:Main:index.html.twig', array('connexion' => $connexion, 'nommbr' => $session->get('nommbr')));
     }
+    
 }
