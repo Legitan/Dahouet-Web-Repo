@@ -11,23 +11,39 @@ Deconnexion:
     path:       /Deconnexion
     defaults:   { _controller: "DahouetMainBundle:Deconnexion:index" }
     
-InscriptionRegate:
-    path:       /InscriptionRegate
-    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:index" }
+SelectionVoilier:
+    path:       /SelectionVoilier
+    defaults:   { _controller: "DahouetMainBundle:SelectionVoilier:index" }
     
 validVoilier:
     path:       /validVoilier
     defaults:   { _controller: "DahouetMainBundle:validVoilier:index" }
     
-#InscriptionRegateReg1:
-#    path:       /InscriptionRegate/reg1
-#    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg1" }
-#    
-#InscriptionRegateReg2:
-#    path:       /InscriptionRegate/reg2
-#    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg2" }
-#    
-#InscriptionRegateReg1:
-#    path:       /InscriptionRegate/reg3
-#    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg3" }
+selectionEquipage:
+    path:       /selectionEquipage
+    defaults:   { _controller: "DahouetMainBundle:selectionEquipage:index" }
+    
+skipper:
+    path:       /skipper
+    defaults:   { _controller: "DahouetMainBundle:skipper:index" }
+    
+recapAvantValid:
+    path:       /recapAvantValid
+    defaults:   { _controller: "DahouetMainBundle:recapAvantValid:index" }
+    
+Regate:
+    path:       /Regate
+    defaults:   { _controller: "DahouetMainBundle:Main:index" }
+    
+InscriptionRegateReg1:
+    path:       /InscriptionRegate/reg1
+    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg1" }
+    
+InscriptionRegateReg2:
+    path:       /InscriptionRegate/reg2
+    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg2" }
+    
+InscriptionRegateReg1:
+    path:       /InscriptionRegate/reg3
+    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg3" }
     

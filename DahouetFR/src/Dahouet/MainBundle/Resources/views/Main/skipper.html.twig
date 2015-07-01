@@ -1,0 +1,19 @@
+{# src/Dahouet/MainBundle/Resources/views/Main/skipper.html.twig #}
+
+{% extends "DahouetMainBundle:Main:index.html.twig" %}
+
+{% block section %}
+    <section>
+        <div class="article">
+            <h3>Sélectionnez le skipper du voilier :</h3>
+            <form action="recapAvantValid" name="skipper" method="post">
+                {% block skipper %}
+                    {% for skippers in skipper %}
+                        <input type="radio" name="skipper" value="{{ skippers.NUMLIC }}" /><label>{{ skippers.NOMLIC }}</label><br />
+                    {% endfor %}
+                {% endblock %}
+                <input type="submit" value="Valider" />
+            </form>
+        </div>
+    </section>
+{% endblock %} 

@@ -1,0 +1,24 @@
+{# src/Dahouet/MainBundle/resources/views/Main/RecapAvantValid.html.twig #}
+
+{% extends "DahouetMainBundle:Main:index.html.twig" %}
+
+{% block section %}
+    <section>
+        <div class="article">
+            <h3>Vérification de saisie avant enregistrement</h3>
+            <p>Vous souhaitez participer à la régate {{ nomreg }} avec votre voilier {{ voilier }}.</p>
+            <p>Votre équipage se compose des licenciés suivant :</p>
+            <ul>
+            {% for equipier in listEquip %}
+                <li>{{ equipier.NOMLIC }}</li>
+            {% endfor %}
+            </ul>
+            <p>Skipper : <strong>{{ skipper }}</strong></p>
+            <h4>Si les informations sont bonnes, entrez votre numéro de portable et validez pour enregistrer votre inscription : </h4>
+            <form action="Inscription" name="inscription" method="post">
+                <input type="text" name="numport"/>
+                <input type="submit" value="Envoyer"/>
+            </form>          
+        </div>
+    </section>
+{% endblock %} 

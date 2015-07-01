@@ -1,0 +1,38 @@
+{#src/Dahouet/MainBundle/Resources/views/Main/selectionEquipage.html.twig#}
+
+{% extends "DahouetMainBundle:Main:index.html.twig" %} 
+{% block section %}
+	<section>
+		<div class="article">
+			<h1 id="inscripRegate"><strong>{{ libreg }}</strong></h1>
+			<h1>Information du voilier</h1>
+			<div id="liste">
+				<p>
+					Nom: <strong>{{ nomvoil }}</strong>
+				</p>
+				<p>
+					Numero de voile: <strong>{{ numvoil }}</strong>
+				</p>
+				<p>
+					Classe: <strong>{{ numclas }}</strong>
+				</p>
+				<p>
+					Nombre de points: <strong>{{ nbrpts }}</strong>
+				</p>
+			</div>
+			<form action="selectionEquipage" method="post">
+				<h3>Sélection de l'équipage</h3>
+				{% for liste in listEquip %} {{ liste.NOMLIC }}<br /> {% endfor %} <br />
+				<select name="validequip"> {% for equips in equipage %}
+					<option name="validequip" value="{{ equips.NUMLIC }}">{{
+						equips.NOMLIC }}</option> {% endfor %}
+					<input type="submit" value="Ajouter l'équipier" />
+				</select>
+			</form>
+			<form action="skipper">
+				<input type='submit' value='Equipage complet' />
+			</form>
+		</div>
+	</section>
+{% endblock %}
+
