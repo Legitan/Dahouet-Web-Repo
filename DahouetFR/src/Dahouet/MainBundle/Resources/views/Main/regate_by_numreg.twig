@@ -1,0 +1,13 @@
+{#src/Dahouet/MainBundle/Resources/views/Main/regate_by_numreg.html.twig#}
+
+{% extends "DahouetMainBundle:Main:index.html.twig" %} 
+
+ {% block regate %}
+	<div class="modmenu">
+		<ul>
+{# 			<li><a href="SelectionVoilier" name="reg1" class="navig">Duo d'Armor</a></li>#}
+{# 			<li><a href="SelectionVoilier" name="reg3" class="navig">Les 3 jours d'Armor</a></li>#}
+			<li><a href="{{ path('SelectionVoilier_by_numreg', { 'NUMREG':  regates.NUMREG  }) }}" name="reg2" class="navig">{{ regates.LIBREG }}</a></li>
+		</ul>
+	</div>
+{% endblock %}

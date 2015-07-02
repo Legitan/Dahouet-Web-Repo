@@ -30,16 +30,13 @@ class SelectionVoilierController extends Controller {
 					'voilier' => $voilier 
 			) );
 		}
-		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
+		return $this->render ( 'DahouetMainBundle:Main:regate_by_numreg.html.twig', array (
 				'connexion' => $connexion,
-				'nommbr' => $session->get('nommbr')));
+				'nommbr' => $session->get('nommbr'),
+				'regates' => RegateDAO::getListRegate()
+		));
     }
-    public function nomRegate($NUMREG){
-     	echo $LIBREG;
-//     	$session = $this->get ( 'session' );
-//     	return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
-//     			'Regate' => $session->get ( 'Regate' )));
-    }
+    
     public function reg1Action() {
     	$session = $this->get('session');
     	$numreg = $session->set('numreg', 1000);

@@ -36,6 +36,20 @@ class RegateDAO {
     		die();
     	}
     	return $regate;
-    	 
+    }
+    
+    public static function getListRegate ($NUMREG) {
+    	$pdo = Connect::ConnectBDD();
+    	$sql = "select * from regate where NUMREG='$NUMREG'";
+    	$result = $pdo->query($sql);
+    	$result->setFetchMode(PDO::FETCH_OBJ);
+    	$regates = array();
+    	while( $ligne = $result->fetch() ) // on récupère la liste
+    	{
+    		$tregate = new Regate($ligne->NUMREG, $ligne->CDOCHAL, $ligne->CODCOM, $ligne->LIBREG, $ligne->DATREG, $ligne->LIEUREG, $ligne->DISTANCE, $ligne->HEURDEP);
+    		array_push($regates, $tregate);
+    	}
+    	$result->closeCursor(); // on ferme le curseur des résultats
+    	return $regates;
     }
 }
