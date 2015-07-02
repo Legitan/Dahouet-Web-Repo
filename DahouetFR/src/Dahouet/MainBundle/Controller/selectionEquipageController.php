@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Dahouet\MainBundle\Modele\DAO\VoilierDAO;
 use Dahouet\MainBundle\Modele\DAO\ParticipeDAO;
 use Dahouet\MainBundle\Modele\DAO\RegateDAO;
-use Dahouet\MainBundle\Modele\DAO\EquipageDAO;
+use Dahouet\MainBundle\Modele\DAO\LicencieDAO;
 
 class selectionEquipageController extends Controller {
 	public function indexAction() {
@@ -40,7 +40,7 @@ class selectionEquipageController extends Controller {
 		// Si aucun équipier n'a été sélectionné
 		if (empty ( $_POST ['validequip'] )) {
 			// Récupération de la liste des licenciés
-			$equipage = EquipageDAO::SelectEquip ();
+			$equipage = LicencieDAO::SelectEquip ();
 			$session->set ( 'equipage', $equipage );
 			$equipier = array ();
 			$session->set ( 'equipier', $equipier );

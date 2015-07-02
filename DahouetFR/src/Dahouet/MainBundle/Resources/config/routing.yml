@@ -35,9 +35,9 @@ Regate:
     path:       /Regate
     defaults:   { _controller: "DahouetMainBundle:Main:index" }
     
-InscriptionRegateReg1:
-    path:       /InscriptionRegate/reg1
-    defaults:   { _controller: "DahouetMainBundle:InscriptionRegate:reg1" }
+SelectionVoilier_by_numreg:
+    path:       /SelectionVoilier/{NUMREG}
+    defaults:   { _controller: "DahouetMainBundle:SelectionVoilier:index" }
     
 InscriptionRegateReg2:
     path:       /InscriptionRegate/reg2

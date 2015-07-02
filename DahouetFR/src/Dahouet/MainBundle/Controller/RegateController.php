@@ -7,13 +7,13 @@ namespace Dahouet\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Dahouet\MainBundle\Modele\DAO\EquipageDAO;
+use Dahouet\MainBundle\Modele\DAO\LicencieDAO;
 
 class RegateController extends Controller {
     public function indexAction() {
         
         //  Récupération de la liste des licenciés
-        $equip = EquipageDAO::SelectEquip();
+        $equip = LicencieDAO::SelectEquip();
         
       
         // Sélection du licencié pour la régate

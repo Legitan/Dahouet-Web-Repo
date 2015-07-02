@@ -4,6 +4,7 @@ namespace Dahouet\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Dahouet\MainBundle\Modele\DAO\VoilierDAO;
+use Dahouet\MainBundle\Modele\DAO\RegateDAO;
 
 class SelectionVoilierController extends Controller {
 	public function indexAction() {
@@ -32,6 +33,12 @@ class SelectionVoilierController extends Controller {
 		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
 				'connexion' => $connexion,
 				'nommbr' => $session->get('nommbr')));
+    }
+    public function nomRegate($NUMREG){
+     	echo $LIBREG;
+//     	$session = $this->get ( 'session' );
+//     	return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
+//     			'Regate' => $session->get ( 'Regate' )));
     }
     public function reg1Action() {
     	$session = $this->get('session');
