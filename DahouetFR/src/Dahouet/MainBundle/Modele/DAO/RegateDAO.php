@@ -38,9 +38,9 @@ class RegateDAO {
     	return $regate;
     }
     
-    public static function getListRegate ($NUMREG) {
+    public static function getListRegate () {
     	$pdo = Connect::ConnectBDD();
-    	$sql = "select * from regate where NUMREG='$NUMREG'";
+    	$sql = "select * from regate";
     	$result = $pdo->query($sql);
     	$result->setFetchMode(PDO::FETCH_OBJ);
     	$regates = array();

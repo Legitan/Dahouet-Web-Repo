@@ -35,7 +35,7 @@ class selectionEquipageController extends Controller {
 			
 			// Récupère les régates à venir
 			$reg = RegateDAO::SelectReg ();
-// 			$reg = RegateDAO::getRegate($numreg);--------------------------------------------------->
+			// $reg = RegateDAO::getRegate($numreg);--------------------------------------------------->
 		}
 		// Si aucun équipier n'a été sélectionné
 		if (empty ( $_POST ['validequip'] )) {
@@ -92,10 +92,16 @@ class selectionEquipageController extends Controller {
 				'numclas' => $session->get ( 'numclas' ),
 				'nomvoil' => $session->get ( 'nomvoil' ),
 				'nbrpts' => $session->get ( 'nbrpts' ),
-				'idmbr' => $session->get('id'), 'nommbr'=>$session->get('nommbr'),
-                    'numreg' => $session->get('numreg'), 'libreg' => $session->get('libreg'),'connexion' => $connexion,
-                    'equipage' => $equipage, 'equipier' => $equipier, 'listEquip' => $listEquip));
-
-    }
+				'idmbr' => $session->get ( 'id' ),
+				'nommbr' => $session->get ( 'nommbr' ),
+				'numreg' => $session->get ( 'numreg' ),
+				'libreg' => $session->get ( 'libreg' ),
+				'connexion' => $connexion,
+				'equipage' => $equipage,
+				'equipier' => $equipier,
+				'listEquip' => $listEquip 
+				
+		) );
+	}
 }
 

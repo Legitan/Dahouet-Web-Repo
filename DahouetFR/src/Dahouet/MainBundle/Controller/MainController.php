@@ -3,6 +3,7 @@
 namespace Dahouet\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+// use Dahouet\MainBundle\Modele\DAO\RegateDAO;
 
 class MainController extends Controller {
 	public function indexAction() {
@@ -18,7 +19,8 @@ class MainController extends Controller {
 		}
 		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
 				'connexion' => $session->get ( 'connexion' ),
-				'nommbr' => $session->get ( 'nommbr' ) 
+				'nommbr' => $session->get ( 'nommbr' ),
+// 				'regates' => RegateDAO::getListRegate()
 		) );
 	}
 }
