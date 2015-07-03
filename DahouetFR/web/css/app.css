@@ -133,6 +133,11 @@ section {
     margin-left: 25px;
     margin-right: 10px;
 }
+#alert{
+	color: red;
+	font-weight:bold;
+	font-size: 18px;
+}
 .article {
 	z-index: 1;
     margin-top: 25px;
