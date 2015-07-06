@@ -39,7 +39,15 @@ class selectionEquipageController extends Controller {
 			if($voilier!==false){
 				$session->set ( 'voilier', $voilier );
 			}
+			
+			//Vérification existance numReg
+			$regate = RegateDAO::getRegate($numReg);
 				
+			//Mise en session de la regate
+			if ($regate!==false){
+				$session->set('numReg', $numReg);
+			}
+			
 			//Récupère les participations aux régates pour lesquelles le voilier n'est pas inscrit
 			$participe = ParticipeDAO::getListNoParticipation ( $voilier->getNumvoil() );
 			$session->set ( 'participe', $participe );
@@ -56,7 +64,6 @@ class selectionEquipageController extends Controller {
 			// Initialisation du tableau des équipiers choisis
 			$listEquip = array ();
 			$session->set ( 'listEquip', $listEquip );
-			var_dump($listEquip);
 		} else {
 			// Récupération des variables de session
 			$equipage = $session->get ( 'equipage' );
@@ -96,11 +103,8 @@ class selectionEquipageController extends Controller {
 		
 		$listEquip = $session->get ( 'listEquip' );
 		$equipage = $session->get ( 'equipage' );
-		var_dump($listEquip);
 		return $this->render ( 'DahouetMainBundle:Main:selectionEquipage.html.twig', array (
-				'voilier' => $session->get ( 'voilier' ),
-// 				'idmbr' => $session->get ( 'id' ),
-// 				'nommbr' => $session->get ( 'nommbr' ),
+				'voilier' => $voilier,
 				'equipage' => $equipage,
 				'equipier' => $equipier,
 				'listEquip' => $listEquip ,

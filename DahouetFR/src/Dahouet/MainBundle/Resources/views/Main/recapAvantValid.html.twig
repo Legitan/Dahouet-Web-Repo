@@ -1,12 +1,12 @@
 {# src/Dahouet/MainBundle/resources/views/Main/RecapAvantValid.html.twig #}
 
-{% extends "DahouetMainBundle:Main:index.html.twig" %}
+{% extends "DahouetMainBundle:Main:membreConnecte.html.twig" %}
 
 {% block section %}
     <section>
         <div class="article">
             <h3>Vérification de saisie avant enregistrement</h3>
-            <p>Vous souhaitez participer à la régate <strong>{{ nomreg }}</strong> avec votre voilier <strong>{{ voilier }}</strong>.</p>
+            <p>Vous souhaitez participer à la régate <strong>{{ regate.LIBREG }}</strong> avec votre voilier <strong>{{ voilier.nomvoil }}</strong>.</p>
             <p>Votre équipage se compose des licenciés suivant :</p>
             <ul>
             {% for equipier in listEquip %}

@@ -10,7 +10,6 @@ class Voilier{
 	private $nomvoil;
 	private $nbrpts;
 	
-	
 	public function __construct($numvoil, $numclass, $idmbr, $nomvoil, $nbrpts){
 		$this->numvoil = $numvoil;
 		$this->numclass = $numclass;
