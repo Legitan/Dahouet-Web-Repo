@@ -35,9 +35,11 @@ class selectionEquipageController extends Controller {
 
 			
 			// Récupération du numéro de voile du voilier choisi
-			$voilier = VoilierDAO::getVoilier($_POST ['selectvoilier']);
+			$numvoil = $_POST ['selectvoilier'];
+			$voilier = VoilierDAO::getVoilier($numvoil);
 			if($voilier!==false){
 				$session->set ( 'voilier', $voilier );
+				$session->set ( 'numvoil', $numvoil );
 			}
 			
 			//Vérification existance numReg

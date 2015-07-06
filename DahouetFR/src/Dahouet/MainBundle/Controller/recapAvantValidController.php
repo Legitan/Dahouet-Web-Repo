@@ -23,10 +23,10 @@ class recapAvantValidController extends Controller {
 			$regate = RegateDAO::getRegate($numReg);
 			$session->set('regate', $regate);
 			
-// 			// Récupération du numéro de voile du voilier choisi
-// 			$numvoil = $session->get ('numvoil');
-// 			$voilier = VoilierDAO::getVoilier($numvoil);
-// 				$session->set ( 'voilier', $voilier );
+			// Récupération du numéro de voile du voilier choisi
+			$numvoil = $session->get ('numvoil');
+			$voilier = VoilierDAO::getVoilier($numvoil);
+				$session->set ( 'voilier', $voilier );
 			
 			
 			$skipper = $_POST ['skipper'];
@@ -41,7 +41,7 @@ class recapAvantValidController extends Controller {
 			$skipperChoisi = $session->get ( 'skipper' );
 			$skipper = $skipperChoisi ['NOMLIC'];
 			return $this->render ( 'DahouetMainBundle:Main:recapAvantValid.html.twig', array (
-// 					'voilier' => $voilier,
+					'voilier' => $voilier,
 					'listEquip' => $listEquip,
 					'skipper' => $skipper,
 					'proprietaire'=> $proprietaire,
