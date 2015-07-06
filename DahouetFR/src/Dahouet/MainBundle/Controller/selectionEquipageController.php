@@ -17,16 +17,16 @@ class selectionEquipageController extends Controller {
 		// Récupération du service de session
 		$session = $this->get ( 'session' );
 		
+		
 		// Récupère les régates à venir
 		$numReg = $session->get('numReg');
 		$regate = RegateDAO::getRegate($numReg);
 		$session->set('regate', $regate);
-			
+		
 		// Récupération de la valeur de $proprietaire
 		$idmbr = $session->get('idmbr');
 		$proprietaire = ProprietaireDAO::getProprietaireById($idmbr);
 		$session->set('proprietaire', $proprietaire);
-		
 		
 		
 		// Si on vient de sélectionner le voilier
@@ -49,14 +49,14 @@ class selectionEquipageController extends Controller {
 		// Si aucun équipier n'a été sélectionné
 		if (empty ( $_POST ['validequip'] )) {
 			// Récupération de la liste des licenciés
-			var_dump($voilier);
-			$equipage = LicencieDAO::getListLicencies ();
+			$equipage = LicencieDAO::SelectEquip ();
 			$session->set ( 'equipage', $equipage );
 			$equipier = array ();
 			$session->set ( 'equipier', $equipier );
 			// Initialisation du tableau des équipiers choisis
 			$listEquip = array ();
 			$session->set ( 'listEquip', $listEquip );
+			var_dump($listEquip);
 		} else {
 			// Récupération des variables de session
 			$equipage = $session->get ( 'equipage' );
@@ -95,14 +95,12 @@ class selectionEquipageController extends Controller {
 		}
 		
 		$listEquip = $session->get ( 'listEquip' );
-		$connexion = $session->get ( 'connexion' );
 		$equipage = $session->get ( 'equipage' );
-		
+		var_dump($listEquip);
 		return $this->render ( 'DahouetMainBundle:Main:selectionEquipage.html.twig', array (
 				'voilier' => $session->get ( 'voilier' ),
 // 				'idmbr' => $session->get ( 'id' ),
 // 				'nommbr' => $session->get ( 'nommbr' ),
-				'connexion' => $connexion,
 				'equipage' => $equipage,
 				'equipier' => $equipier,
 				'listEquip' => $listEquip ,

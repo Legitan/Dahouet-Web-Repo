@@ -1,0 +1,12 @@
+{# src/Dahouet/MainBundle/Resources/views/Main/membreConnecte.html.twig #}
+
+{% extends "DahouetMainBundle:Main:index.html.twig" %}
+
+	{% block membre %} 
+        <h3>Vous êtes connecté</h3>
+        <form action='{{ path('Deconnexion') }}' method='post' name='deconnect'>
+            <p>Bonjour {{ proprietaire.nommbr }}</p>
+            <input type='submit' value='Déconnexion'/>
+        </form>
+     {% endblock %}
+

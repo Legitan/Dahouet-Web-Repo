@@ -2,35 +2,27 @@
 // src/Dahouet/MainBundle/Controller/ConnexionController.php
 namespace Dahouet\MainBundle\Controller;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Dahouet\MainBundle\Modele\DAO\ProprietaireDAO;
 
 class ConnexionController extends Controller {
-	public function indexAction() {
-		// récupération des variables POST
+	
+	public function indexAction(){
+		$session = new Session();
 		$idmbr = filter_input ( INPUT_POST, 'idmbr' );
 		$pwmbr = filter_input ( INPUT_POST, 'pwmbr' );
-		// Test de connexion sur la base de données
-		$session = $this->get ( 'session' );
 		$proprietaire = ProprietaireDAO::getProprietaire ( $idmbr, $pwmbr );
-		$session->set('proprietaire', $proprietaire);
-		if ($proprietaire) {
-			
-			$session->set('idmbr', $idmbr);
-// 			$session->set ( 'idmbr', $proprietaire->getIdmbr () );
-//   		$session->set ( 'nommbr', $proprietaire->getNommbr () );
-			$session->set ( 'connexion', 1 );
-		} else {
-			$session = $this->get ( 'session' );
-// 			$session->set ( 'nommbr', '' );
-			$session->set ( 'connexion', 0 );
+				$session->set('proprietaire', $proprietaire);
+				if ($proprietaire!==false){
+						$session->set('idmbr', $idmbr);
+						return $this->render ( 'DahouetMainBundle:Main:membreConnecte.html.twig', array (
+								'proprietaire'=> $proprietaire,
+						));
+				}else{
+				return $this->render ( 'DahouetMainBundle:Main:index.html.twig');
+				}
 		}
-		
-		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
-				'connexion' => $session->get ( 'connexion' ), 
-// 				'nommbr'=> $session->get('nommbr'),
-				'proprietaire'=> $proprietaire,
-		));
-    }
 }
 

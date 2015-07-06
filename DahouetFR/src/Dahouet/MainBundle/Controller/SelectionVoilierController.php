@@ -10,12 +10,11 @@ use Dahouet\MainBundle\Modele\DAO\ProprietaireDAO;
 class SelectionVoilierController extends Controller {
 	public function indexAction($numReg) {
 		
-		// Ouverture de session et récupération de l'état de connexion
+		// Ouverture de session
 		$session = $this->get ( 'session' );
-		$connexion = $session->get ( 'connexion' );
 		
 		// Si la personne n'est pas connectée, on lui demande de se connecter
-		if ($connexion == 0) {
+		if (session_status() !== PHP_SESSION_ACTIVE) {
 			return $this->render ( 'DahouetMainBundle:Main:loginObligatoire.html.twig', array (
 					'connexion' => $session->get ( 'connexion' ),
 			) );
@@ -37,18 +36,10 @@ class SelectionVoilierController extends Controller {
 			
 			
 			return $this->render ( 'DahouetMainBundle:Main:selectionVoilier.html.twig', array (
-					'connexion' => $connexion,
 					'proprietaire'=> $proprietaire,
 					'voilier' => $voilier,
 					'regate' => $regate,
 			) );
 		}
-		var_dump($regate);
-		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
-				'connexion' => $connexion,
-				'proprietaire'=> $proprietaire,
-		));
-		
-    }
-    
+	}
 }
