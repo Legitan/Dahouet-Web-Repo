@@ -11,9 +11,9 @@ Deconnexion:
     path:       /Deconnexion
     defaults:   { _controller: "DahouetMainBundle:Deconnexion:index" }
     
-SelectionVoilier:
-    path:       /SelectionVoilier
-    defaults:   { _controller: "DahouetMainBundle:SelectionVoilier:index" }
+#SelectionVoilier:
+#    path:       /SelectionVoilier
+#    defaults:   { _controller: "DahouetMainBundle:SelectionVoilier:index" }
     
 validVoilier:
     path:       /validVoilier
@@ -36,7 +36,9 @@ Regate:
     defaults:   { _controller: "DahouetMainBundle:Main:index" }
     
 SelectionVoilier_by_numreg:
-    path:       /SelectionVoilier/{NUMREG}
+    path:       /SelectionVoilier/{numReg}
     defaults:   { _controller: "DahouetMainBundle:SelectionVoilier:index" }
+    requirements:
+        numReg:  \d+
     
     

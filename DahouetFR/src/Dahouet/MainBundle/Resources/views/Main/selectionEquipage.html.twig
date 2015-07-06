@@ -4,20 +4,20 @@
 {% block section %}
 	<section>
 		<div class="article">
-			<h1 id="inscripRegate"><strong>{{ libreg }}</strong></h1>
+			<h1 id="inscripRegate"><strong>{{ regate.LIBREG }}</strong></h1>
 			<h1>Information du voilier</h1>
 			<div id="liste">
 				<p>
-					Nom: <strong>{{ nomvoil }}</strong>
+					Nom: <strong>{{ voilier.nomvoil }}</strong>
 				</p>
 				<p>
-					Numero de voile: <strong>{{ numvoil }}</strong>
+					Numero de voile: <strong>{{ voilier.numvoil }}</strong>
 				</p>
 				<p>
-					Classe: <strong>{{ numclas }}</strong>
+					Classe: <strong>{{ voilier.numclass }}</strong>
 				</p>
 				<p>
-					Nombre de points: <strong>{{ nbrpts }}</strong>
+					Nombre de points: <strong>{{ voilier.nbrpts }}</strong>
 				</p>
 			</div>
 			<form action="selectionEquipage" method="post">

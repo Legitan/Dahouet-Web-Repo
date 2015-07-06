@@ -4,9 +4,10 @@ namespace Dahouet\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Dahouet\MainBundle\Modele\DAO\VoilierDAO;
+use Dahouet\MainBundle\Modele\DAO\RegateDAO;
 
 class SelectionVoilierController extends Controller {
-	public function indexAction() {
+	public function indexAction($numReg) {
 		
 		// Ouverture de session et récupération de l'état de connexion
 		$session = $this->get ( 'session' );
@@ -21,12 +22,20 @@ class SelectionVoilierController extends Controller {
 			// Récupération de l'identifiant du propriétaire
 			$idmbr = $session->get ( 'idmbr' );
 			
+			//Vérification existance numReg
+			$regate = RegateDAO::getRegate($numReg);
+			
+			//Mise en session de la regate
+			if ($regate!==false){
+				$session->set('numReg', $numReg);
+			}
 			// Récupération des bateaux du propriétaire
 			$voilier = VoilierDAO::getListVoilier ( $idmbr );
 			return $this->render ( 'DahouetMainBundle:Main:selectionVoilier.html.twig', array (
 					'connexion' => $connexion,
 					'nommbr' => $session->get ( 'nommbr' ),
 					'voilier' => $voilier,
+					'regate' => $regate,
 			) );
 		}
 		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (

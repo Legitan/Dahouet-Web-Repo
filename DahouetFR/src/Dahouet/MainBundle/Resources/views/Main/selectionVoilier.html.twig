@@ -1,18 +1,20 @@
 {# src/Dahouet/MainBundle/Resources/views/Main/selectionVoilier.html.twig #}
 
 {% extends "DahouetMainBundle:Main:index.html.twig" %}
-
 	{% block section %}
         	<section>
 	            <div class="article">
+	            	<h1>Inscription régate</h1>
+					<h2>{{ regate.LIBREG }}</h2>
 	                <form action="{{ path('selectionEquipage') }}" method="post">
 			            <h3>Sélection du voilier</h3>
 			            <select name="selectvoilier">
 			                {% for voiliers in voilier %}
 			                    <option name="selectvoilier" value= "{{ voiliers.NUMVOIL }}">{{ voiliers.NOMVOIL }}</option>
 			                {% endfor %}
-			                <input type="submit" value="Valider" />
-			            </select> 
+			                
+			            </select>
+			            <input type="submit" value="Valider" /> 
             		</form>
 	            </div>
 	         </section>

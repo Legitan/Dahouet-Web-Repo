@@ -15,26 +15,25 @@ class selectionEquipageController extends Controller {
 		
 		// Récupération du service de session
 		$session = $this->get ( 'session' );
+		$numReg = $session->get('numReg');
 		
 		// Si on vient de sélectionner le voilier
 		if (isset ( $_POST ['selectvoilier'] )) {
 			
 			// Récupération du numéro de voile du voilier choisi
-			$session->set ( 'numvoil', $_POST ['selectvoilier'] );
-			$numvoil = $session->get ( 'numvoil' );
+			$voilier = VoilierDAO::getVoilier($_POST ['selectvoilier']);
+			if($voilier!==false){
+				$session->set ( 'numvoil', $_POST ['selectvoilier'] );
+				//Récupère les participations aux régates pour lesquelles le voilier
+				// n'est pas inscrit
+				$participe = ParticipeDAO::getParticipation ( $voilier->getNumvoil() );
+			}
 			
-			// Récupère les informations sur le voilier
-			$validation = VoilierDAO::ValidationVoilier ( $numvoil );
-			$session->set ( 'numclas', $validation [0] ['NUMCLAS'] );
-			$session->set ( 'nomvoil', $validation [0] ['NOMVOIL'] );
-			$session->set ( 'nbrpts', $validation [0] ['NBRPTS'] );
+			// 
 			
-			// Récupère les participations aux régates pour lesquelles le voilier
-			// n'est pas inscrit
-			$particip = ParticipeDAO::Participation ( $numvoil );
 			
 			// Récupère les régates à venir
-			$reg = RegateDAO::SelectReg ();
+			$regate = RegateDAO::getRegate($numReg);
 			// $reg = RegateDAO::getRegate($numreg);--------------------------------------------------->
 		}
 		// Si aucun équipier n'a été sélectionné
@@ -88,18 +87,14 @@ class selectionEquipageController extends Controller {
 		$connexion = $session->get ( 'connexion' );
 		$equipage = $session->get ( 'equipage' );
 		return $this->render ( 'DahouetMainBundle:Main:selectionEquipage.html.twig', array (
-				'numvoil' => $session->get ( 'numvoil' ),
-				'numclas' => $session->get ( 'numclas' ),
-				'nomvoil' => $session->get ( 'nomvoil' ),
-				'nbrpts' => $session->get ( 'nbrpts' ),
+				'voilier' => $voilier,
 				'idmbr' => $session->get ( 'id' ),
 				'nommbr' => $session->get ( 'nommbr' ),
-				'numreg' => $session->get ( 'numreg' ),
-				'libreg' => $session->get ( 'libreg' ),
 				'connexion' => $connexion,
 				'equipage' => $equipage,
 				'equipier' => $equipier,
-				'listEquip' => $listEquip 
+				'listEquip' => $listEquip ,
+				'regate' => $regate,
 				
 		) );
 	}
