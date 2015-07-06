@@ -32,13 +32,11 @@
 	                        <div class="module">
 	                            <h3>Inscription aux régates 2014</h3>
 	                            	<div class="modmenu">
-	                            		{% block regate %}
-	                            			{{ render(controller("DahouetMainBundle:regate_by_numreg:listRegate")) }}
-{# 			                            	{% for regate in regates %}#}
-{# 			                            		{{ include "DahouetMainBundle:Main:regate_by_numreg.html.twig", {'regate': regate} }}#}
-{# 												<li><a href="{{ path('SelectionVoilier_by_numreg', { 'NUMREG':  regate.NUMREG  }) }}" name="reg2" class="navig">{{ regate.LIBREG }}</a></li>#}
-{# 			                            	{% endfor %}#}
-										{% endblock %}
+	                            		<ul>
+		                            		{% block regate %}
+		                            			{{ render(controller("DahouetMainBundle:regate_by_numreg:listRegate")) }}
+											{% endblock %}
+										</ul>
 	                            	</div>
 	                        </div>
 	                        <div class="module">

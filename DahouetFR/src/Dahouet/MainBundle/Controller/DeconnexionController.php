@@ -7,9 +7,12 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class DeconnexionController extends Controller {
 	public function indexAction() {
+		
+		
 		// Récupération du service de session
-		$session = $this->get ( 'session' );
-		$session->set ( 'connexion', 0 );
+ 		$session = $this->get ( 'session' );
+ 		$session->set ( 'connexion', 0 );
+ 		session_destroy();
 // 		$session->set ( 'equip', '' );
 // 		$session->set ( 'idmbr', '' );
 // 		$session->set ( 'nbrpts', 0 );

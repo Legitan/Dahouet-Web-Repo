@@ -11,20 +11,25 @@ class ConnexionController extends Controller {
 		$idmbr = filter_input ( INPUT_POST, 'idmbr' );
 		$pwmbr = filter_input ( INPUT_POST, 'pwmbr' );
 		// Test de connexion sur la base de données
-		$proprietaire = ProprietaireDAO::getListProprietaire ( $idmbr, $pwmbr );
+		$session = $this->get ( 'session' );
+		$proprietaire = ProprietaireDAO::getProprietaire ( $idmbr, $pwmbr );
+		$session->set('proprietaire', $proprietaire);
 		if ($proprietaire) {
-			$session = $this->get ( 'session' );
-			$session->set ( 'idmbr', $idmbr );
-			$session->set ( 'nommbr', $proprietaire->getNommbr () );
+			
+			$session->set('idmbr', $idmbr);
+// 			$session->set ( 'idmbr', $proprietaire->getIdmbr () );
+//   		$session->set ( 'nommbr', $proprietaire->getNommbr () );
 			$session->set ( 'connexion', 1 );
 		} else {
 			$session = $this->get ( 'session' );
-			$session->set ( 'nommbr', '' );
+// 			$session->set ( 'nommbr', '' );
 			$session->set ( 'connexion', 0 );
 		}
+		
 		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
 				'connexion' => $session->get ( 'connexion' ), 
-				'nommbr'=> $session->get('nommbr'),
+// 				'nommbr'=> $session->get('nommbr'),
+				'proprietaire'=> $proprietaire,
 		));
     }
 }

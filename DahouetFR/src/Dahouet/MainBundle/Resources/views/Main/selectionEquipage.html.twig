@@ -4,7 +4,7 @@
 {% block section %}
 	<section>
 		<div class="article">
-			<h1 id="inscripRegate"><strong>{{ regate.LIBREG }}</strong></h1>
+			<h1 id="inscripRegate"><strong><u>{{ regate.LIBREG }}</u></strong></h1>
 			<h1>Information du voilier</h1>
 			<div id="liste">
 				<p>
@@ -26,8 +26,8 @@
 				<select name="validequip"> {% for equips in equipage %}
 					<option name="validequip" value="{{ equips.NUMLIC }}">{{
 						equips.NOMLIC }}</option> {% endfor %}
-					<input type="submit" value="Ajouter l'équipier" />
 				</select>
+				<input type="submit" value="Ajouter l'équipier" />
 			</form>
 			<form action="skipper">
 				<input type='submit' value='Equipage complet' />

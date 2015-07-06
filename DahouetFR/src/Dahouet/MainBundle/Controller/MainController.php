@@ -3,7 +3,7 @@
 namespace Dahouet\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-// use Dahouet\MainBundle\Modele\DAO\RegateDAO;
+use Dahouet\MainBundle\Modele\DAO\ProprietaireDAO;
 
 class MainController extends Controller {
 	public function indexAction() {
@@ -11,6 +11,10 @@ class MainController extends Controller {
 		$session = $this->get ( 'session' );
 		// Récupération de la valeur de $connexion
 		$connexion = $session->get ( 'connexion' );
+		// Récupération de la valeur de $proprietaire
+		$idmbr = $session->get('idmbr');
+		$proprietaire = ProprietaireDAO::getProprietaireById($idmbr);
+		$session->set('proprietaire', $proprietaire);
 		// Si la valeur est nulle
 		if ($connexion) {
 			$session->set ( 'connexion', 1 );
@@ -20,7 +24,7 @@ class MainController extends Controller {
 		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
 				'connexion' => $session->get ( 'connexion' ),
 				'nommbr' => $session->get ( 'nommbr' ),
-// 				'regates' => RegateDAO::getListRegate()
+				'proprietaire'=> $proprietaire,
 		) );
 	}
 }

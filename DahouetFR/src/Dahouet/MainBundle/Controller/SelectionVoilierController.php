@@ -5,6 +5,7 @@ namespace Dahouet\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Dahouet\MainBundle\Modele\DAO\VoilierDAO;
 use Dahouet\MainBundle\Modele\DAO\RegateDAO;
+use Dahouet\MainBundle\Modele\DAO\ProprietaireDAO;
 
 class SelectionVoilierController extends Controller {
 	public function indexAction($numReg) {
@@ -19,8 +20,9 @@ class SelectionVoilierController extends Controller {
 					'connexion' => $session->get ( 'connexion' ),
 			) );
 		} else {
-			// Récupération de l'identifiant du propriétaire
-			$idmbr = $session->get ( 'idmbr' );
+			//Récupération de l'identifiant du propriétaire
+			$idmbr = $session->get('idmbr');
+			$proprietaire = ProprietaireDAO::getProprietaireById ( $idmbr );
 			
 			//Vérification existance numReg
 			$regate = RegateDAO::getRegate($numReg);
@@ -31,16 +33,20 @@ class SelectionVoilierController extends Controller {
 			}
 			// Récupération des bateaux du propriétaire
 			$voilier = VoilierDAO::getListVoilier ( $idmbr );
+			
+			
+			
 			return $this->render ( 'DahouetMainBundle:Main:selectionVoilier.html.twig', array (
 					'connexion' => $connexion,
-					'nommbr' => $session->get ( 'nommbr' ),
+					'proprietaire'=> $proprietaire,
 					'voilier' => $voilier,
 					'regate' => $regate,
 			) );
 		}
+		var_dump($regate);
 		return $this->render ( 'DahouetMainBundle:Main:index.html.twig', array (
 				'connexion' => $connexion,
-				'nommbr' => $session->get('nommbr'),
+				'proprietaire'=> $proprietaire,
 		));
 		
     }

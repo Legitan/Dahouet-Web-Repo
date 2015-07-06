@@ -4,15 +4,13 @@
 	{% block section %}
         	<section>
 	            <div class="article">
-	            	<h1>Inscription régate</h1>
-					<h2>{{ regate.LIBREG }}</h2>
+					<h1>Inscription à la régate: <u>{{ regate.LIBREG }}</u></h1>
 	                <form action="{{ path('selectionEquipage') }}" method="post">
-			            <h3>Sélection du voilier</h3>
+			            <h3>Sélection du voilier de M. {{ proprietaire.nommbr }}</h3>
 			            <select name="selectvoilier">
 			                {% for voiliers in voilier %}
 			                    <option name="selectvoilier" value= "{{ voiliers.NUMVOIL }}">{{ voiliers.NOMVOIL }}</option>
 			                {% endfor %}
-			                
 			            </select>
 			            <input type="submit" value="Valider" /> 
             		</form>

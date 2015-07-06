@@ -7,7 +7,7 @@ class Participe {
 	private $NUMVOIL;
 	private $NUMREG;
 	private $NUMLICSKI;
-	private $STATUS;
+	private $STATUT;
 	private $DATEINSC;
 	private $TPSREEL;
 	private $CODEDEC;
@@ -17,12 +17,12 @@ class Participe {
 	private $NUMPORT;
 	
 	
-	public function __construct($CODEPAR,$NUMVOIL,	$NUMREG,$NUMLICSKI,$STATUS,$DATEINSC,$TPSREEL,$CODEDEC,$PLACE,$TPSCOMP,$HEURARR,$NUMPORT){
+	public function __construct($CODEPAR,$NUMVOIL,	$NUMREG,$NUMLICSKI,$STATUT,$DATEINSC,$TPSREEL,$CODEDEC,$PLACE,$TPSCOMP,$HEURARR,$NUMPORT){
 		$this->CODEPAR=$CODEPAR;
 		$this->NUMVOIL=$NUMVOIL;
 		$this->NUMREG=$NUMREG;
 		$this->NUMLICSKI=$NUMLICSKI;
-		$this->STATUS=$STATUS;
+		$this->STATUT=$STATUT;
 		$this->DATEINSC=$DATEINSC;
 		$this->TPSREEL=$TPSREEL;
 		$this->CODEDEC=$CODEDEC;
@@ -59,11 +59,11 @@ class Participe {
 		$this->NUMLICSKI = $NUMLICSKI;
 		return $this;
 	}
-	public function getSTATUS() {
-		return $this->STATUS;
+	public function getSTATUT() {
+		return $this->STATUT;
 	}
-	public function setSTATUS($STATUS) {
-		$this->STATUS = $STATUS;
+	public function setSTATUT($STATUT) {
+		$this->STATUT = $STATUT;
 		return $this;
 	}
 	public function getDATEINSC() {

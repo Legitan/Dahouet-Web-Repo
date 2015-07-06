@@ -4,7 +4,7 @@
         {# Si le propriétaire est connecté, on lui dit bonjour #}
         <h3>Vous êtes connecté</h3>
         <form action='{{ path('Deconnexion') }}' method='post' name='deconnect'>
-            <p>Bonjour {{ nommbr }}</p>
+            <p>Bonjour {{ proprietaire.nommbr }}</p>
             <input type='submit' value='Déconnexion'/>
         </form>
     {% else  %}
