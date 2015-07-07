@@ -15,20 +15,24 @@
 	    	
 		    	<nav id="navbar">
 				  <ul id="menu">
-				    <li><a id= "accueil" href="#"><span class="chevron bottom"></span><strong>Accueil</strong></a>
+				    <li><a id= "accueil" class= "menu-item-link" href="#"><span class="chevron bottom"></span><strong>Accueil</strong></a>
 				    	<ul class="sous-menu">
 				    		<li class= "sous-menu-item-box"><a class= "sous-menu-item-link" href="#">Présentation des régates</a></li>
 				    	</ul>
 				    </li>
-				    <li><a href="#"><span class="chevron bottom"></span><strong>Challenges et régates</strong></a>
+				    <li><a class= "menu-item-link" href="#"><span class="chevron bottom"></span><strong>Challenges et régates</strong></a>
 				    	<ul class="sous-menu">
 						    <li><a class= "sous-menu-item-link" href="#">Inscription</a></li>
+						    	<ul class="sous-menu2">
+						    		{% block listRegate %}
+									{% endblock %}
+						    	</ul>
 						    <li><a class= "sous-menu-item-link" href="#">Résultats</a></li>
 						    <li><a class= "sous-menu-item-link" href="#">Archives</a></li>
 				    	</ul>
 				    </li>
-				    <li><a href="#"><strong>Partenaires</strong></a></li>
-				    <li><a href="#"><strong>Télécharger notre plaquette</strong></a></li>
+				    <li><a class= "menu-item-link" href="#"><strong>Partenaires</strong></a></li>
+				    <li><a class= "menu-item-link" href="#"><strong>Télécharger notre plaquette</strong></a></li>
 				  </ul>
 				</nav>
 			</header>

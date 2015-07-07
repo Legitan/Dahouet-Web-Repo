@@ -1,5 +1,5 @@
 {#src/Dahouet/MainBundle/Resources/views/Main/regate_by_numreg.html.twig#}
 {% for regate in regates %}
-			<li><a href="{{ path('SelectionVoilier_by_numreg', { 'numReg':  regate.NUMREG  }) }}" name="reg2" class="navig">{{ regate.LIBREG }}</a></li>
+			<li class= "listReg"><a href="{{ path('SelectionVoilier_by_numreg', { 'numReg':  regate.NUMREG  }) }}" name="reg" class="navig">{{ regate.LIBREG }}</a></li>
 {% endfor %}
 			

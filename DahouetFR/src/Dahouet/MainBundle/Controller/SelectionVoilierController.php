@@ -15,9 +15,7 @@ class SelectionVoilierController extends Controller {
 		
 		// Si la personne n'est pas connectée, on lui demande de se connecter
 		if (session_status() !== PHP_SESSION_ACTIVE) {
-			return $this->render ( 'DahouetMainBundle:Main:loginObligatoire.html.twig', array (
-					'connexion' => $session->get ( 'connexion' ),
-			) );
+			return $this->render ( 'DahouetMainBundle:Main:loginObligatoire.html.twig');
 		} else {
 			//Récupération de l'identifiant du propriétaire
 			$idmbr = $session->get('idmbr');

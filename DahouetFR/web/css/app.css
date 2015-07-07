@@ -35,20 +35,17 @@ body{
 	margin-right:10px;
 	
 }
-#menu a {
+#menu .menu-item-link {
 	 text-decoration: none;
 	 display: block;
 	 padding: 8px 10px;
 	 color: white;
 	 font-family: trebuchet MS;
 }
-#menu ul a {
+#menu .sous-menu .menu-item-link {
  	padding: 8px 0;
 }
-#menu li:hover li a {
- 	color: black;
-}
-#menu li:hover a, #menu li li:hover a {
+#menu li:hover .menu-item-link, #menu li li:hover .menu-item-link {
  	color: black;
  	background: #E3E3E3;
  	z-index: 15;
@@ -58,28 +55,28 @@ body{
  	background: #E3E3E3;
  	width: 230px;
  }
-#menu li li:hover a, .sous-menu li:hover a{
+#menu li li:hover .menu-item-link, .sous-menu li:hover .sous-menu-item-link{
  	color: white;
  	background: black;
  }
 
-#menu, #menu ul {
+#menu, #menu .sous-menu {
  	padding: 0;
  	margin: 0;
 }
 #menu li {
  	display: inline-block;
-/*  	width: auto; */
  	position: relative;
  	background-color: #173E69;
 }
 #accueil{
 	margin-left: 10px;
 }
-#menu ul li {
+#menu .sous-menu li {
  	display: inherit;
+ 	background-color: #E3E3E3;
 }
-#menu ul {
+#menu .sous-menu {
  	position: absolute;
  	max-height: 0;
  	left: 0;
@@ -90,19 +87,18 @@ body{
     -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
 }
-#menu li:hover ul {
+#menu li:hover .sous-menu {
  	max-height: 15em;
-/*  	width: auto; */
 }
+/* LE SOUS MENU */
+/***************************/
  .sous-menu li{
  	white-space: nowrap;
- 	padding: inherit;
  	-webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
     -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
 }
 .sous-menu{
-	
  	background: #E3E3E3;
  	-moz-box-shadow: 0 2px 1px #9c9c9c;
     -webkit-box-shadow: 0 2px 1px #9c9c9c;
@@ -110,13 +106,60 @@ body{
      width: 230px;
      z-index: 15;
 }
+.sous-menu li:hover .menu-item-link, .sous-menu li li:hover .menu-item-link {
+ 	color: black;
+ 	background-color: #E3E3E3;
+ }
 .sous-menu-item-box{
 	 width: auto;
 }
-.sous-menu a:hover li{
+.sous-menu .sous-menu-item-link{
+	text-decoration: none;
+	padding: 8px 10px;
+	display: block;
+}
+.sous-menu .sous-menu-item-link:hover li{
  	color: white;
  	background: black;
  }
+ 
+/* LE SOUS SOUS MENU */
+/***************************/
+
+ .sous-menu2{
+/*   	padding: 0; */
+/*  	margin-left: 0; */
+ 	position: relative;
+/*  	max-height: 0; */
+ 	overflow: hidden;
+ 	box-shadow: 0 1px 2px #555;
+ 	-webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
+}
+/* .sous-menu li:hover .sous-menu2 { */
+/*  	max-height: 15em; */
+/* } */
+.sous-menu2{
+	 z-index: 30px;
+	 overflow: hidden;
+}
+ .sous-menu2 a{
+ 	overflow: inherit;
+  	color: inherit;
+	padding: 8px 10px;
+	display: inline-block;
+ }
+ .sous-menu2 .listReg a:hover{
+ 	overflow: hidden;
+ 	text-decoration: none;
+ 	color: white;
+ 	background: black;
+}
+.sous-menu2 .listReg a{
+	color: black;
+}
+
 /***************************/
 /* LE CONTENEUR D'ARTICLES */
 /***************************/

@@ -19,6 +19,9 @@ class ProprietaireDAO {
 	    	$result = $pdo->query($sql);
 	    	$result->setFetchMode(PDO::FETCH_OBJ);
 	    	$ligne = $result->fetch();
+	    	if ($ligne == false){
+	    		return null;
+	    	}
 		    $proprietaire = new Proprietaire($ligne->IDMBR, $ligne->IDCLUB, $ligne->NOMMBR, $ligne->MAILMBR, $ligne->PWMBR);
 		    	
 	    	$result->closeCursor(); // on ferme le curseur des résultats

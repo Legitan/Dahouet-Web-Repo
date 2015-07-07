@@ -1,5 +1,9 @@
 {% extends "::base.html.twig" %}
 
+	{% block listRegate %}
+		       {{ render(controller("DahouetMainBundle:regate_by_numreg:listRegate")) }}
+	{% endblock %}
+
 	{% block section %}
 		<section>
 		    <div class="article">

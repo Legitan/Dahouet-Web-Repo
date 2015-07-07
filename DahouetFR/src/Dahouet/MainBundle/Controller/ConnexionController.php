@@ -14,15 +14,17 @@ class ConnexionController extends Controller {
 		$idmbr = filter_input ( INPUT_POST, 'idmbr' );
 		$pwmbr = filter_input ( INPUT_POST, 'pwmbr' );
 		$proprietaire = ProprietaireDAO::getProprietaire ( $idmbr, $pwmbr );
-				$session->set('proprietaire', $proprietaire);
-				if ($proprietaire!==false){
+				
+				
+					if ($proprietaire!==null ){
+						$session->set('proprietaire', $proprietaire);
 						$session->set('idmbr', $idmbr);
 						return $this->render ( 'DahouetMainBundle:Main:membreConnecte.html.twig', array (
 								'proprietaire'=> $proprietaire,
 						));
-				}else{
-				return $this->render ( 'DahouetMainBundle:Main:index.html.twig');
-				}
+					}else{
+						return $this->render ( 'DahouetMainBundle:Main:loginErrone.html.twig');
+					}
 		}
 }
 
