@@ -38,7 +38,6 @@ class LicencieDAO {
     public static function InsertEquipage($codepar, $numlic) {
     	$pdo = Connect::ConnectBDD();
     	$sql = "insert into equipage (CODEPAR, NUMLIC) values (".$codepar.", ".$numlic.");";
-    	echo $sql;
     	$req = $pdo->prepare($sql);
     	$req->execute();
     }

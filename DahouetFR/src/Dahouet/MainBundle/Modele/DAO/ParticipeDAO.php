@@ -50,6 +50,7 @@ class ParticipeDAO {
     	$sql = "select CODEPAR from participe where NUMVOIL = ".$numvoil." and NUMREG = ".$numreg." and NUMLICSKI = ".$numlicski.";";
     	$req = $pdo->prepare($sql);
     	$codepar = $req->execute();
+    	//$codepar = $pdo->lastInsertId();
     	return $codepar;
     }
 }

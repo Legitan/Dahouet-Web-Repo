@@ -15,13 +15,6 @@ class VoilierDAO {
 	 * @return Voilier[]:
 	 */
  public static function getListVoilier ($idMembre) {
-//         $bdd = Connect::ConnectBDD();
-//         $voilier = array();
-//         $sql = "select * from voilier where IDMBR='$id'";
-//         $req=$bdd->prepare($sql);
-//         $req->execute();
-//         $voilier = $req->fetchall();
-//         return $voilier;   
  		$pdo = Connect::ConnectBDD();
  		$sql = "select * from voilier where IDMBR='$idMembre'";
  		$result = $pdo->query($sql);

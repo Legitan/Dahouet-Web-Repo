@@ -1,10 +1,14 @@
-{# src/SYMFONYDahouet/RegatesBundle/Resources/views/Regates/inscription.html.twig #}
+{# src/Dahouet/MainBundle/Resources/views/Main/inscription.html.twig #}
 
-{% extends "SYMFONYDahouetRegatesBundle::layout.html.twig" %}
+{% extends "DahouetMainBundle:Main:membreConnecte.html.twig" %}
 
 {% block section %}
     <section>
-    <form class="article" name="inscription" method="post" action="Traitementinscript">
-
-    </section>
+	            <div class="article">
+	                <h1>Inscription réussie!</h1>
+	                <p>Votre inscription se trouve en attente de validation, elle sera validée après vérification des coordonnées des participants
+	                 notamment la validité de la licence à partir du site web de la FFV (Fédération Française de Voile).</p>
+	                <a href = "Accueil">Retour accueil</a>
+	            </div>
+	         </section>
 {% endblock %}

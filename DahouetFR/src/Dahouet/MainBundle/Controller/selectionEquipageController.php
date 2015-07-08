@@ -29,10 +29,9 @@ class selectionEquipageController extends Controller {
 		$session->set('proprietaire', $proprietaire);
 		
 		
+		
 		// Si on vient de sélectionner le voilier
 		if (isset ( $_POST ['selectvoilier'] )) {
-			
-
 			
 			// Récupération du numéro de voile du voilier choisi
 			$numvoil = $_POST ['selectvoilier'];
@@ -49,12 +48,10 @@ class selectionEquipageController extends Controller {
 			if ($regate!==false){
 				$session->set('numReg', $numReg);
 			}
-			
-			//Récupère les participations aux régates pour lesquelles le voilier n'est pas inscrit
-			$participe = ParticipeDAO::getListNoParticipation ( $voilier->getNumvoil() );
-			$session->set ( 'participe', $participe );
 		}		
-			
+		//Récupère les participations aux régates pour lesquelles le voilier n'est pas inscrit
+		$participe = ParticipeDAO::getListNoParticipation ( 'numvoil' );
+		$session->set ( 'participe', $participe );
 		
 		// Si aucun équipier n'a été sélectionné
 		if (empty ( $_POST ['validequip'] )) {
@@ -112,7 +109,7 @@ class selectionEquipageController extends Controller {
 				'listEquip' => $listEquip ,
 				'regate' => $regate,
 				'proprietaire'=> $proprietaire,
-// 				'participe'=> $participe,
+				'participe'=> $participe,
 				
 				
 		) );
