@@ -29,9 +29,8 @@ class InscriptionController extends Controller {
 		$listEquip = $session->get ( 'listEquip' );
 		$session->set ( 'numport', $numport );
 		
-		ParticipeDAO::InsertParticipe ( $numvoil, $numreg, $numlicski, $numport );
-		$codepar = ParticipeDAO::SelectParticipe ( $numvoil, $numreg, $numlicski );
-		echo $codepar;
+		$codepar = ParticipeDAO::InsertParticipe ( $numvoil, $numreg, $numlicski, $numport );
+		
 		$compt = count ( $listEquip );
 		for($i = 0; $i < $compt; $i ++) {
 			$numlic = $listEquip [$i] ['NUMLIC'];

@@ -44,13 +44,7 @@ class ParticipeDAO {
     	$sql = "insert into participe (NUMVOIL, NUMREG, NUMLICSKI, DATEINSC, NUMPORT) values(".$numvoil.", ".$numreg.", ".$numlicski.", current_timestamp, ".$numport.");";
     	$req = $pdo->prepare($sql);
     	$req->execute();
-    }
-    public static function SelectParticipe($numvoil, $numreg, $numlicski) {
-    	$pdo = Connect::ConnectBDD();
-    	$sql = "select CODEPAR from participe where NUMVOIL = ".$numvoil." and NUMREG = ".$numreg." and NUMLICSKI = ".$numlicski.";";
-    	$req = $pdo->prepare($sql);
-    	$codepar = $req->execute();
-    	//$codepar = $pdo->lastInsertId();
-    	return $codepar;
+     	$codepar = $pdo->lastInsertId();
+     	return $codepar;
     }
 }
